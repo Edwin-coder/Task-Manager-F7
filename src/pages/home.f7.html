@@ -1,101 +1,137 @@
 <template>
-  <div class="page" data-name="home">
-    <!-- Top Navbar -->
-    <div class="navbar navbar-large">
-      <div class="navbar-bg"></div>
-      <div class="navbar-inner">
-        <div class="left">
-          <a href="#" class="link icon-only panel-open" data-panel="left">
-            <i class="icon f7-icons if-not-md">menu</i>
-            <i class="icon material-icons if-md">menu</i>
+  <!-- Scrollable page content -->
+    <div class="page" data-name="home">
+      <div class="page-content" style="background-color:gray;">  
+        <!-- Static navbar goes in the beginning inside of page-content -->
+        <div class="navbar">
+          <div class="navbar-bg" style="background-color:gray;"></div>
+            <div class="navbar-inner"> 
+              <div class="title" style="color:white; font-size: xx-large; margin: auto;">
+                Task Manager
+              </div>
+              <div class="right"><a href="#" class="link "><i 
+                class="icon material-icons" 
+                style="font-size: 30px; color: red;"
+                >delete
+                </i></a></div>
+            </div>
+        </div>
+        <!--LIST SECTION -->
+        <div class="list">
+          <ul id="todoContainer">
+            <li class="swipeout">
+              <div class="item-content swipeout-content" style="background-color: gray;">
+                <div class="item-media">
+                  <span class="material-icons" style="color:gold; font-size: 35px;" >
+                    access_time_filled 
+                  </span>
+                </div>
+                <div class="item-inner" >
+                  <div class="item-title" style="color: white;">Swipe left on me please</div>
+                </div>
+              </div>
+              <div class="swipeout-actions-right">
+                <a 
+                  href="#" 
+                  class="swipeout-delete"
+                  >Delete
+                </a>
+              </div>
+            </li>
+            <li class="swipeout">
+              <div class="item-content swipeout-content" style="background-color: gray;">
+                <div class="item-media">
+                  <span class="material-icons" style="color:green; font-size: 35px; " >
+                  done
+                  </span>
+                </div>
+                <div class="item-inner" style="background-color: gray;">
+                  <div class="item-title" style="color: white;">Swipe left on me please</div>
+                </div>
+              </div>
+              <div class="swipeout-actions-right">
+                <a 
+                  href="#" 
+                  class="color-green open-more-actions"
+                  >Mark Complete 
+                </a>
+                <a 
+                  href="#" 
+                  class="swipeout-delete"
+                  >Delete
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!--CREATE NEW TASK SECTION-->
+        <div class="fab fab-extended fab-center-bottom color-red">
+          <a 
+            href="#" 
+            class="sheet-open" 
+            data-sheet=".my-sheet" 
+            style="background-color: green;">
+            <i class="icon f7-icons if-not-md">plus</i>
+            <i class="icon material-icons md-only">add</i>
+            <div class="fab-text">Add New Task</div>
           </a>
         </div>
-        <div class="title sliding">My App</div>
-        <div class="right">
-          <a href="#" class="link icon-only panel-open" data-panel="right">
-            <i class="icon f7-icons if-not-md">menu</i>
-            <i class="icon material-icons if-md">menu</i>
-          </a>
-        </div>
-        <div class="title-large">
-          <div class="title-large-text">My App</div>
-        </div>
-      </div>
-    </div>
-    <!-- Toolbar-->
-    <div class="toolbar toolbar-bottom">
-      <div class="toolbar-inner">
-        <a href="#" class="link">Left Link</a>
-        <a href="#" class="link">Right Link</a>
-      </div>
-    </div>
-    <!-- Scrollable page content-->
-    <div class="page-content">
-      <div class="block block-strong">
-        <p>Here is your blank Framework7 app. Let's see what we have here.</p>
-      </div>
-      <div class="block-title">Navigation</div>
-      <div class="list">
-        <ul>
-          <li>
-            <a href="/about/" class="item-content item-link">
-              <div class="item-inner">
-                <div class="item-title">About</div>
+  
+        <!--SHEET OPEN WHEN FLOATING A.N.T BUTTON IS CLICKED-->
+        <div class="sheet-modal my-sheet">
+          <div class="toolbar" style="background-color: gray;">
+            <div class="toolbar-inner">
+              <div class="left"></div>
+              <div class="right">
+              <div class="row"> 
+                <div class="col"> 
+                  <a class="link sheet-close" href="#">Done</a> 
+                  </div> 
+            
+                <div class="col"> 
+                  <a class="link sheet-close" href="#">Cancel </a> 
+                  </div> 
+                </div>
               </div>
-            </a>
-          </li>
-          <li>
-            <a href="/form/" class="item-content item-link">
-              <div class="item-inner">
-                <div class="item-title">Form</div>
+          
+            </div>
+          </div>
+          <div class="sheet-modal-inner">
+            <div class="block">
+              <h3>Add To Do List</h3>
+              <div class="list inline-labels no-hairlines-md">
+                <ul>
+                  <li class="item-content item-input">
+                  
+                    <div class="item-inner">
+                      
+                      <div class="item-input-wrap">
+                        <textarea placeholder="Add To Do" id="todoinput"></textarea>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="block-title">Modals</div>
-      <div class="block block-strong">
-        <div class="row">
-          <div class="col-50">
-            <a href="#" class="button button-raised button-fill popup-open" data-popup="#my-popup">Popup</a>
-          </div>
-          <div class="col-50">
-            <a href="#" class="button button-raised button-fill login-screen-open" data-login-screen="#my-login-screen">Login Screen</a>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="block-title">Panels</div>
-      <div class="block block-strong">
-        <div class="row">
-          <div class="col-50">
-            <a href="#" class="button button-raised button-fill panel-open" data-panel="left">Left Panel</a>
-          </div>
-          <div class="col-50">
-            <a href="#" class="button button-raised button-fill panel-open" data-panel="right">Right Panel</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="list links-list">
-        <ul>
-          <li>
-            <a href="/dynamic-route/blog/45/post/125/?foo=bar#about">Dynamic (Component) Route</a>
-          </li>
-          <li>
-            <a href="/load-something-that-doesnt-exist/">Default Route (404)</a>
-          </li>
-          <li>
-            <a href="/request-and-load/user/123456/">Request Data & Load</a>
-          </li>
-        </ul>
+        
       </div>
     </div>
-  </div>
-</template>
-<script>
-export default () => {
-  return $render;
-}
-</script>
+  
+  
+  
+  
+  
+  
+  
+  
+  </template>
+  <script src="./js/index.js"></script>
+  <!-- <script src="../js/index.js"></script> -->
+  
+  <script>
+  export default () => {
+    return $render;
+  }
+  </script>
